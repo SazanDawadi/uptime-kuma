@@ -441,7 +441,7 @@ export default {
             incident: null,
             previousIncident: null,
             showImageCropUpload: false,
-            imgDataUrl: "/icon.svg",
+            imgDataUrl: "/icon.png",
             loadedTheme: false,
             loadedData: false,
             baseURL: "",
@@ -1064,7 +1064,7 @@ export default {
     font-size: 25px;
 
     .ok {
-        color: $primary;
+        color: $primary-brand;
     }
 
     .warning {
