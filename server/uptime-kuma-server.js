@@ -119,11 +119,14 @@ class UptimeKumaServer {
 
         // Allow all CORS origins (polling) in development
         let cors = undefined;
-        if (isDev) {
-            cors = {
+        cors = {
                 origin: "*",
             };
-        }
+        // if (isDev) {
+        //     cors = {
+        //         origin: "*",
+        //     };
+        // }
 
         this.io = new Server(this.httpServer, {
             cors,
