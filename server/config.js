@@ -7,7 +7,7 @@ const args = (typeof process !== "undefined") ? require("args-parser")(process.a
 // Dual-stack support for (::)
 // Also read HOST if not FreeBSD, as HOST is a system environment variable in FreeBSD
 let hostEnv = isFreeBSD ? null : process.env.HOST;
-const hostname = args.host || process.env.UPTIME_KUMA_HOST || hostEnv;
+// const hostname = args.host || process.env.UPTIME_KUMA_HOST || hostEnv;
 
 const port = [ args.port, process.env.UPTIME_KUMA_PORT, process.env.PORT, 3001 ]
     .map(portValue => parseInt(portValue))
@@ -25,8 +25,8 @@ const isSSL = sslKey && sslCert;
  */
 function getLocalWebSocketURL() {
     const protocol = isSSL ? "wss" : "ws";
-    const host = hostname || "localhost";
-    return `${protocol}://${host}:${port}`;
+    const host = "localhost";
+    return `${protocol}://:${port}`;
 }
 
 const localWebSocketURL = getLocalWebSocketURL();
@@ -35,7 +35,7 @@ const demoMode = args["demo"] || false;
 
 module.exports = {
     args,
-    hostname,
+    // hostname,
     port,
     sslKey,
     sslCert,
